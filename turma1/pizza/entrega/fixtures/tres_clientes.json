@@ -1,0 +1,64 @@
+[
+{
+  "pk": 1, 
+  "model": "entrega.cliente", 
+  "fields": {
+    "fone": "93131-1345", 
+    "logradouro": "", 
+    "email": "", 
+    "numero": 0, 
+    "nome": "Fulano de Tal"
+  }
+},
+{
+  "pk": 2, 
+  "model": "entrega.cliente", 
+  "fields": {
+    "fone": "4231-3132", 
+    "logradouro": "", 
+    "email": "si@tal.co", 
+    "numero": 0, 
+    "nome": "Sicrano de Tal"
+  }
+},
+{
+  "pk": 3, 
+  "model": "entrega.cliente", 
+  "fields": {
+    "fone": "7861-3134", 
+    "logradouro": "Rua X", 
+    "email": "", 
+    "numero": 110, 
+    "nome": "Beltrano da Silva"
+  }
+},
+{
+  "pk": 4, 
+  "model": "entrega.cliente", 
+  "fields": {
+    "fone": "4567-8901", 
+    "logradouro": "", 
+    "email": "", 
+    "numero": 0, 
+    "nome": "Maria Ful\u00f4"
+  }
+},
+{
+  "pk": 1, 
+  "model": "entrega.pedido", 
+  "fields": {
+    "data_hora_pedido": "2013-04-18T22:08:50Z", 
+    "cliente": 4, 
+    "data_hora_despacho": "2013-04-18T23:15:08Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "entrega.pedido", 
+  "fields": {
+    "data_hora_pedido": "2013-04-18T23:14:58Z", 
+    "cliente": 2, 
+    "data_hora_despacho": null
+  }
+}
+]
