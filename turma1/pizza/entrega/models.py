@@ -20,3 +20,49 @@ class Pedido(models.Model):
 
     def __unicode__(self):
         return u'#%s - %s' % (self.id, self.data_hora_pedido)
+
+SABORES = [
+    ('',            u'-'),
+    ('queijo',      u'muçarela'),
+    ('calabreza',   u'calabreza'),
+    ('atum',        u'atum'),
+    ('frango-cat',  u'frango com catupiry'),
+    ('chocolate',   u'chocolate'),
+]
+
+class Pizza(models.Model):
+    pedido = models.ForeignKey(Pedido)
+    sabor1 = models.CharField(max_length=16, choices=SABORES)
+    sabor2 = models.CharField(max_length=16, choices=SABORES, blank=True)
+    borda_recheada = models.BooleanField()
+
+    def __unicode__(self):
+        if not self.sabor2:
+            cobertura = self.sabor1
+        else:
+            cobertura = '1/2 %s, 1/2 %s' % (self.sabor1, self.sabor2)
+        borda = ' +borda recheada' if self.borda_recheada else ''
+        return '[pedido %s] %s' % (self.id, cobertura+borda)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

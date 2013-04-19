@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from django.contrib import admin
-from .models import Cliente, Pedido
+from .models import Cliente, Pedido, Pizza
 
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'fone')
@@ -14,3 +14,7 @@ class PedidoAdmin(admin.ModelAdmin):
 admin.site.register(Cliente, ClienteAdmin)
 
 admin.site.register(Pedido, PedidoAdmin)
+
+# XXX: temporario
+admin.site.register(Pizza)
+
