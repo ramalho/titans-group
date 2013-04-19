@@ -42,7 +42,7 @@ class Pizza(models.Model):
         else:
             cobertura = '1/2 %s, 1/2 %s' % (self.sabor1, self.sabor2)
         borda = ' +borda recheada' if self.borda_recheada else ''
-        return '[pedido %s] %s' % (self.id, cobertura+borda)
+        return '[pedido %s] %s' % (self.pedido, cobertura+borda)
 
 
 
