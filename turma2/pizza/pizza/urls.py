@@ -7,7 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'pizza.views.home', name='home'),
-    # url(r'^pizza/', include('pizza.foo.urls')),
+    url(r'^entrega/', include('entrega.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

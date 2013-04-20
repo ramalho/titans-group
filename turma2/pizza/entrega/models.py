@@ -1,5 +1,9 @@
 # coding: utf-8
 
+from __future__ import unicode_literals
+
+import sys
+
 from django.db import models
 
 class Cliente(models.Model):
@@ -11,23 +15,29 @@ class Cliente(models.Model):
     desconto = models.DecimalField(max_digits=3, decimal_places=1, default=0)
 
     def __unicode__(self):
-        return u'%s (%s)' % (self.nome, self.fone)
+        return '%s (%s)' % (self.nome, self.fone)
+
+    # 2TO3: compatível Python 2 e Python 3
+    if sys.version_info.major == 3:
+        __str__ == __unicode__
+
+
 
 class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente)
-    data_hora_pedido = models.DateTimeField()
+    data_hora_pedido = models.DateTimeField(auto_now_add=True)
     data_hora_despacho = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
-        return u'#%s - %s' % (self.id, self.data_hora_pedido)
+        return '#%s - %s' % (self.id, self.data_hora_pedido)
 
 SABORES = [
-    ('',            u'-'),
-    ('queijo',      u'muçarela'),
-    ('calabreza',   u'calabreza'),
-    ('atum',        u'atum'),
-    ('frango-cat',  u'frango com catupiry'),
-    ('chocolate',   u'chocolate'),
+    ('',            '-'),
+    ('queijo',      'muçarela'),
+    ('calabreza',   'calabreza'),
+    ('atum',        'atum'),
+    ('frango-cat',  'frango com catupiry'),
+    ('chocolate',   'chocolate'),
 ]
 
 class Pizza(models.Model):
@@ -42,27 +52,5 @@ class Pizza(models.Model):
         else:
             cobertura = '1/2 %s, 1/2 %s' % (self.sabor1, self.sabor2)
         borda = ' +borda recheada' if self.borda_recheada else ''
-        return '[pedido %s] %s' % (self.pedido, cobertura+borda)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return cobertura+borda
 
